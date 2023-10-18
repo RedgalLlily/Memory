@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- meta viewport tag needed to make site responsive on mobile devices https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>WCC Portfolio - Demo Page</title>
+
+        <!-- including for some global styling -->
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <!-- if you have sub-pages think about adding a simple back button -->
+        <nav>
+            <a href="https://redgalllily.github.io/wcc-portfolio-final/">HOME</a>
+        </nav>
+        <header class="documentation-header">
+            <section class="center-text">
+                <h1>Memory</h1>
+                <h2>Yining LI</h6>
+                <p>A Chinese-style VR puzzle game where the past and the future are intertwined</p> 
+            </section>
+        </header>
+
+        <main class="documentation-page">
+            <section>
+                <div class="responsive-video centered-content">
+                    <iframe src="https://player.vimeo.com/video/822514784?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479" width="1080" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Memory"></iframe>                </div>
+            </section>
+            <section>
+                <h3>Introduction</h3>
+                <p>This is a Chinese-style puzzle game inspired by the Kunqu opera "Peach Blossom Fan", in which the protagonist walks between reality and past memories, and gradually finds her own memories.</p>
+            </section>
+            <section>
+                <h3>Concept and Background Research</h3>
+                
+                <p>In the initial proposal, I aimed to design a story about an amnesiac person who tries to regain her memory by examining the objects in the room. The final product seems to have followed this pattern, and the crucial aspect was to rationalize the motivation behind the entire narrative. My inspiration drew from Chinese Kunqu Opera "The Peony Pavilion," which combined with my prior knowledge from the field of stage design. The story is set up around the protagonist being a theater actor who once played Li Xiangjun in "The Peony Pavilion," earning the admiration of numerous audience members.  </p>
+                <p>However, a romantic setback left her dispirited, causing a career break and admission to a hospital. After being cured, she slowly realizes what she genuinely wants in life and discovers her enduring passion for the stage. As such, she decides to begin her acting career anew.</p>
+                <p>"The Peach Blossom Fan" tells the story of young scholar Hou Fangyu falling in love with a courtesan named Li Xiangjun. During their engagement, he gave her a fan and inscribed words on it as a token of their relationship. However, due to political upheaval, Hou Fangyu and Li Xiangjun were forced to separate. Through the meddling of devious individuals, Li Xiangjun was forced to marry someone else. In defiance, she struck her head against a pillar, leaving a bloodstain on the fan. A mutual friend drew a branch of peach blossoms with Li Xiangjun's blood on the fan to show Hou Fangyu her determination. After the fall of the Ming dynasty, the remaining characters chose to live in seclusion rather than serve under the Qing dynasty.</p>
+                <p>The entire story revolves around this fan, which becomes the clue in the first scene. The first scene takes place in the room of a character from the Peach Blossom Fan, the second scene in the protagonist's room, and the third scene on a stage with the Peach Blossom Fan's backdrop. The protagonist travels between the story and the real world, and their life corresponds with the life of the character Li Xiangjun, until they finally regain their identity.</p>
+
+               
+                
+            </section>
+            <section>
+                <h3>Technical Implementation</h3>
+
+                <p>I hope that the scenes in this project are controlled within a limited space. Therefore, in the first scene, the fan needs to undergo four material changes: empty space, poetry, blood, and painting. The materials are created in Photoshop. I set up two collision interactions, one where the pen touches the fan and the other where the fan touches the ground. The final material appears directly in the second scene, which is the protagonist's real room. In each interaction, adjusting the "attach" and "socket" attachment positions is essential due to the object's unique shape. I created a collision area in front of the desk and added bloodstains using Photoshop. I placed the script on the collision area so that when the fan contacts the ground, the ground and pen need to switch materials, while the door opens. After the door opens, it is necessary to teleport to the next scene. Therefore, I set up a cube outside the door and disabled the "mesh renderer" while writing the teleportation script. I also set up a "TriggerZone" on the edge of the stage, and when passing through it, there is a Kunqu Opera song from "The Peony Pavilion," which was sung by Li Xiangjun in "The Peach Blossom Fan."   </p>
+                <p>Additionally, to allow for clicking on UI buttons, I added a ray interactor on the left-hand side and added the "grab" script to the object that needs to be clicked. I turned off "track Position", "Track Rotation", and "Throw On Detach," set "select" to "this UI active," and closed it in the scene first.</p>
+
+                
+
+                <!-- example of styling for three images, you can write your own styling -->
+                <div class="flex-container flex-basis-half">
+                    <div class="flex-item">
+                        <img src="assets\images\1.png"/>
+                    </div>
+                    <div class="flex-item">
+                        <img src="assets\images\2.png"/>
+                    </div>
+                    
+                   
+                    
+                </div>
+                <p>In the second scene, I designed a similar layout to the first scene, where the completed version of "The Peach Blossom Fan " is immediately visible upon entering, linking the two scenes. On the UI text where clicking is required, I set up text switches depending on the number of button clicks, replacing or removing the text above and replacing it with other text. I created three interactive items: a love letter, a medical diagnosis, and a script. The text mainly promotes the player's understanding of the plot. When the love letter is thrown into the trash can, the door opens.</p>
+                
+                <p>In the third scene, the study's layout is similar to the first scene, but with fewer decorative elements as it is a stage backdrop. On the stage floor, a fluorescent "X" is usually set to indicate where the actor should stand. When the person stands on this "X," the directional light in the scene will turn off, and a spot light animation will gradually increase in brightness, revealing the UI in front. To make some props on stage self-illuminate, I added a global volume and set the corresponding material on the model. I also added a reflection probe to make the ground reflect.</p>
+                
+            
+                <!-- example of styling for three images, you can write your own styling -->
+                <div class="flex-container flex-basis-half">
+                    <div class="flex-item">
+                        <img src="assets\images\3.png"/>
+                    </div>
+                    <div class="flex-item">
+                        <img src="assets\images\4.png"/>
+                    </div>
+                </div>
+
+                
+                <!-- default flex item is for 4 & follows media query styling for home page -->
+                
+                
+         
+            </section>
+            <section>
+                <h3>Reflection and Future Development</h3>
+                <p>Although I have implemented all desired features, the interactions appear rather stiff. For instance, it would be more realistic if the material of the fan could change gradually. As a puzzle game, sufficient clues are not provided to assist the players, and as a first-person game, an internal monologue dialogue box appearing at the bottom of the screen could enhance the plot and the players' experience. Furthermore, the optimization is not sufficient. I have made some adjustments according to the tutorial, but the number of Batches is still high, and the screen may occasionally freeze.</p>
+                
+
+            </section>
+            <section>
+                <h3>References</h3>
+                <ul>
+                    <li>[1] Flat Kit https://assetstore.unity.com/packages/vfx/shaders/flat-kit-toon-shading-and-water-143368</li>
+                    
+                    
+                    
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <!-- normally information like contact details etc  -->
+            <!-- read more about semantic HTML https://www.w3schools.com/html/html5_semantic_elements.asp -->
+            
+         </footer>
+    </body>
+</html>
